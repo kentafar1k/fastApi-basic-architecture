@@ -2,20 +2,16 @@ from pydantic import BaseModel
 from pydantic_settings import BaseSettings
 
 class RunConfig(BaseModel):
-    host: str = "0.0.0.0"
-    port: int = 8000
+    host: str = ("localhost")
+    port: int = 8002
 
 class ApiPrefix(BaseModel):
-    prefix: str = "/api/"
+    prefix: str = "/api"
 
 class Settings(BaseSettings):
     run: RunConfig = RunConfig()
     api: ApiPrefix = ApiPrefix()
-    # db
-    db_url: str
 
-    #prefix
-    api_prefix: str
 
 
 settings = Settings()
